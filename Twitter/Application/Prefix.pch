@@ -1,0 +1,39 @@
+//
+//  Prefix.pch
+//  Twitter
+//
+//  Created by Yong Zeng on 11/11/17.
+//  Copyright © 2017 Yong Zeng. All rights reserved.
+//
+
+#ifndef Prefix_pch
+#define Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#import "UIColor+color.h"
+//#import "UIImage+Image.h"
+
+
+
+#define YZColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define KDeviceWidth [[UIScreen mainScreen] bounds].size.width
+#define KDeviceHeight [[UIScreen mainScreen] bounds].size.height
+//#define YZKeyWindow [UIApplication sharedApplication].keyWindow
+
+
+// __VA_ARGS__: means the mutable parameter in function
+#ifdef DEBUG
+//#define YZLog(...) NSLog(__VA_ARGS__)
+#define YZLog(fmt, ...) NSLog((@"^%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define YZLog(...)
+#endif
+
+#endif
+
+
+#endif /* Prefix_pch */
